@@ -1,0 +1,125 @@
+/* Centrage du jeu sur la page et définition des couleurs de fond */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2c3e50;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #ecf0f1;
+}
+
+#gameContainer {
+    position: relative;
+    width: 600px;
+    max-width: 95vw;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #ecf0f1;
+    border: 4px solid #34495e;
+    border-radius: 6px;
+}
+
+/* HUD (score, vies, niveau) affiché par-dessus le canvas */
+#hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+}
+
+/* Écran superposé : menu, pause, game over, victoire, niveau terminé */
+#overlay {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px;
+    text-align: center;
+    background: rgba(44, 62, 80, 0.93);
+    border-radius: 3px;
+}
+
+#overlay.visible {
+    display: flex;
+}
+
+#overlay h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #f1c40f;
+}
+
+#overlay p {
+    margin: 0;
+    max-width: 440px;
+    line-height: 1.6;
+    font-size: 14px;
+    color: #ecf0f1;
+}
+
+#overlay button {
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    background: #3498db;
+    color: #fff;
+    cursor: pointer;
+    transition: background .15s ease, transform .1s ease;
+}
+
+#overlay button:hover {
+    background: #2980b9;
+}
+
+#overlay button:active {
+    transform: scale(0.96);
+}
+
+/* Contrôles tactiles : cachés par défaut, affichés seulement sur écran tactile */
+#touchControls {
+    display: none;
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    padding: 0 18px;
+}
+
+#touchControls button {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(52, 73, 94, 0.55);
+    color: #fff;
+    font-size: 22px;
+    touch-action: none;
+    user-select: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    #touchControls {
+        display: flex;
+    }
+}

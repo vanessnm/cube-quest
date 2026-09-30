@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube Quest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+        <!-- HUD : affiché seulement pendant qu'on joue -->
+        <div id="hud">
+            <span id="hudScore">Score : 0</span>
+            <span id="hudLevel">Niveau 1/3</span>
+            <span id="hudLives">Vies : ❤❤❤</span>
+            <span id="hudHighScore">Meilleur score : 0</span>
+        </div>
+
+        <!-- Écran superposé réutilisé pour menu / pause / game over / victoire / niveau terminé -->
+        <div id="overlay">
+            <h1 id="overlayTitle">Cube Quest</h1>
+            <p id="overlayMessage">
+                Flèches ou WASD pour bouger, Espace pour sauter.<br>
+                Ramasse les pièces, saute sur les ennemis pour les vaincre (ou évite-les),
+                et atteins le drapeau pour terminer le niveau.<br>
+                Échap ou P pour mettre en pause.
+            </p>
+            <button id="overlayButton">Jouer</button>
+        </div>
+
+        <!-- Contrôles tactiles : visibles seulement sur écran tactile (voir style.css) -->
+        <div id="touchControls">
+            <button id="btnLeft" aria-label="Gauche">◀</button>
+            <button id="btnJump" aria-label="Sauter">⤒</button>
+            <button id="btnRight" aria-label="Droite">▶</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
